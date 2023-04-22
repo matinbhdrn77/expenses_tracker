@@ -23,6 +23,13 @@ class _ExpensesState extends State<Expenses> {
         date: DateTime.now(),
         category: Category.leisure),
   ];
+
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(context: context, builder:(ctx) {
+      return Text('data');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
