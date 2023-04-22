@@ -49,6 +49,10 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(child: Text('There is no expense, Try add one!'));
+    if (_registeredExpenses.isNotEmpty) {
+      mainContent = ExpenseList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense,);
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter ExpanseTracker'),
@@ -61,7 +65,7 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(children: [
         const Text('The Chart'),
-        Expanded(child: ExpenseList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense,)),
+        Expanded(child: mainContent),
       ]),
     );
   }
